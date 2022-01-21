@@ -1,4 +1,11 @@
-import { Column, Entity, ObjectID, ObjectIdColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ObjectID,
+  ObjectIdColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -12,6 +19,15 @@ export class User {
   email: string;
   @Column()
   password: string;
-  @Column({ default: Date.now() })
+  @CreateDateColumn({ default: Date.now() })
   date: Date;
+  @Column({
+    type: 'timestamp',
+  })
+  createdAt: Date;
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+  })
+  updatedAt: Date;
 }
