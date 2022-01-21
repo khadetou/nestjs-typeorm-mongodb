@@ -15,8 +15,11 @@ export class AuthService {
   ) {}
 
   //Register - Create - Authenticate user
-  async createUser(authCredentialsDto: AuthCredentialsDto): Promise<void> {
-    return this.userRepository.createUser(authCredentialsDto);
+  async createUser(
+    name: string,
+    authCredentialsDto: AuthCredentialsDto,
+  ): Promise<void> {
+    return this.userRepository.createUser(name, authCredentialsDto);
   }
 
   //Login - Signin - Authenticate user

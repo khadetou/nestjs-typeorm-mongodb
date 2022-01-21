@@ -8,8 +8,11 @@ export class AuthController {
 
   //Register - Create - Authenticate user
   @Post('/signup')
-  signup(@Body() authCredentialsDto: AuthCredentialsDto): Promise<void> {
-    return this.authService.createUser(authCredentialsDto);
+  signup(
+    @Body() authCredentialsDto: AuthCredentialsDto,
+    @Body() name: string,
+  ): Promise<void> {
+    return this.authService.createUser(name, authCredentialsDto);
   }
 
   //Login - Signin - Authenticate user
