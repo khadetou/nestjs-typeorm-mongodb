@@ -17,6 +17,7 @@ import { configValidationSchema } from './config.schema';
         return {
           type: 'mongodb',
           url: configService.get('MONGO_URI'),
+          writeConcern: { w: 'majority', wtimeout: 2500 },
           useNewUrlParser: true,
           synchronize: true,
           useUnifiedTopology: true,
@@ -28,3 +29,6 @@ import { configValidationSchema } from './config.schema';
   ],
 })
 export class AppModule {}
+
+// Top-level use of w, wtimeout, j, and fsync is deprecated. Use writeConcern instead
+// writeConcern: { w: 'majority', wtimeout: 2500 },
