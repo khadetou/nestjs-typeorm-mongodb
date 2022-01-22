@@ -1,3 +1,4 @@
+import { User } from './../auth/user.entity';
 import { Column, Entity, ObjectID, ObjectIdColumn } from 'typeorm';
 
 @Entity()
@@ -74,7 +75,7 @@ export class Socials {
 export class Profile {
   @ObjectIdColumn()
   id: ObjectID;
-  @ObjectIdColumn()
+  @Column((type) => User)
   user: ObjectID;
   @Column()
   company: string;

@@ -18,6 +18,10 @@ export class ProfileService {
     socialsDto: SocialsDto,
     user: User,
   ): Promise<Profile> {
-    return this.createProfile(createProfileDto, socialsDto, user);
+    return this.profileRepository.createProfile(
+      createProfileDto,
+      socialsDto,
+      user,
+    );
   }
 }

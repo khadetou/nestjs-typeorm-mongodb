@@ -4,16 +4,11 @@ import {
   IsNotEmpty,
   MaxLength,
   MinLength,
-  IsObject,
-  IsArray,
   IsOptional,
 } from 'class-validator';
 import { Education, Experience, Socials } from '../profile.entity';
 
 export class CreateProfileDto {
-  @IsNotEmpty()
-  user: ObjectID;
-
   @IsString()
   @IsNotEmpty()
   @MaxLength(30)
@@ -57,7 +52,6 @@ export class CreateProfileDto {
   experience: Experience[];
 
   education: Education[];
-
   socials: Socials;
 }
 
