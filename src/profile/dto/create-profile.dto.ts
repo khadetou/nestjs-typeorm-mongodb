@@ -6,6 +6,7 @@ import {
   MinLength,
   IsObject,
   IsArray,
+  IsOptional,
 } from 'class-validator';
 import { Education, Experience, Socials } from '../profile.entity';
 
@@ -41,7 +42,7 @@ export class CreateProfileDto {
   @IsNotEmpty()
   @MaxLength(30)
   @MinLength(2)
-  skills: string;
+  skillsString: string;
 
   @IsString()
   @IsNotEmpty()
@@ -57,5 +58,20 @@ export class CreateProfileDto {
 
   education: Education[];
 
-  social: Socials;
+  socials: Socials;
+}
+
+export class SocialsDto {
+  @IsOptional()
+  youtube: string;
+  @IsOptional()
+  twitter: string;
+
+  @IsOptional()
+  facebook: string;
+  @IsOptional()
+  linkedin: string;
+
+  @IsOptional()
+  instagram: string;
 }
